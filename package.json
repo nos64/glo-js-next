@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "glo js+next"
+    "build": "webpack --mode=production",
+    "dev": "webpack --watch --mode=development"
   },
   "keywords": [],
   "author": "",
