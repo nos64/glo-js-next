@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode=production",
+    "start-server": "npx json-server db/db.json",
+    "build": "rm -rf dist && webpack --mode=production",
     "dev": "webpack --watch --mode=development"
   },
   "keywords": [],
@@ -13,5 +14,8 @@
   "devDependencies": {
     "webpack": "^5.102.1",
     "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "json-server": "^1.0.0-beta.3"
   }
 }

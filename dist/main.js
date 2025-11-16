@@ -16,7 +16,7 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_cart__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/cart */ \"./src/modules/cart.js\");\n\n\n(0,_modules_cart__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n\n//# sourceURL=webpack://glo-js-next/./src/index.js?\n}");
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_cart__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/cart */ \"./src/modules/cart.js\");\n/* harmony import */ var _modules_second__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/second */ \"./src/modules/second.js\");\n\n\n\n(0,_modules_cart__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n(0,_modules_second__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n\n//# sourceURL=webpack://glo-js-next/./src/index.js?\n}");
 
 /***/ }),
 
@@ -27,6 +27,36 @@ eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mo
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst cart = () => {\n  const cartBtn = document.getElementById('cart');\n  const cartModal = document.querySelector('.cart');\n\n  const closeCartBtn = cartModal.querySelector('.cart-close');\n\n  const openCart = () => cartModal.style.display = 'flex';\n  const closeCart = () => cartModal.style.display = 'none';\n\n  cartBtn.addEventListener('click', openCart);\n\n  closeCartBtn.addEventListener('click', closeCart);\n  cartModal.addEventListener('click', e => {\n    const cartBody = document.querySelector('.cart-body');\n\n    if (!cartBody.contains(e.target)) {\n      closeCart();\n    }\n  });\n};\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (cart);\n\n//# sourceURL=webpack://glo-js-next/./src/modules/cart.js?\n}");
+
+/***/ }),
+
+/***/ "./src/modules/getData.js":
+/*!********************************!*\
+  !*** ./src/modules/getData.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n\nconst getData = () => fetch('https://glo-next-js-default-rtdb.firebaseio.com/goods.json')\n    .then(response => response.json())\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getData);\n\n//# sourceURL=webpack://glo-js-next/./src/modules/getData.js?\n}");
+
+/***/ }),
+
+/***/ "./src/modules/postData.js":
+/*!*********************************!*\
+  !*** ./src/modules/postData.js ***!
+  \*********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst postData = () => fetch('https://glo-next-js-default-rtdb.firebaseio.com/goods.json', {\n  method: 'POST',\n  body: JSON.stringify({\n\t\ttitle: \"Ведьмак 3\",\n\t\tprice: 3000,\n\t\tsale: true,\n\t\timg: \"https://cdn1.ozone.ru/multimedia/c400/1023547851.jpg\",\n\t\t\"category\": \"Игры и софт\"\n  }),\n  headers: {\n    'Content-type': 'application/json; charset=UTF-8',\n  },\n}).then(response => response.json())\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (postData);\n\n//# sourceURL=webpack://glo-js-next/./src/modules/postData.js?\n}");
+
+/***/ }),
+
+/***/ "./src/modules/second.js":
+/*!*******************************!*\
+  !*** ./src/modules/second.js ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("{__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _getData__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./getData */ \"./src/modules/getData.js\");\n/* harmony import */ var _postData__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./postData */ \"./src/modules/postData.js\");\n\n\n\nconst second = () => {\n    const cartBtn = document.getElementById('cart');\n\n    cartBtn.addEventListener('click', () =>{\n        (0,_postData__WEBPACK_IMPORTED_MODULE_1__[\"default\"])().then(data => {\n            console.log(data)\n\n            ;(0,_getData__WEBPACK_IMPORTED_MODULE_0__[\"default\"])().then(data => console.log(data));\n        });\n\n    });\n}\n\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (second);\n\n//# sourceURL=webpack://glo-js-next/./src/modules/second.js?\n}");
 
 /***/ })
 
