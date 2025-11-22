@@ -1,10 +1,14 @@
 import { getData } from './actions';
-import type { Product } from './models/product.model';
+import { Product } from './models/product.model';
 import { Query } from './models/query.model';
+import { useCart } from './providers/CartProvider';
+import AddToCartButton from './ui/AddToCartButton';
 
 export default async function Home({ searchParams }: { searchParams: Query}) {
 	const query = await searchParams;
 	const goods = await getData(query);
+
+
 
   return (
     <div className="container">
@@ -61,7 +65,8 @@ export default async function Home({ searchParams }: { searchParams: Query}) {
 										<div className="card-body justify-content-between">
 											<div className="card-price">{goodsItem.price} ₽</div>
 											<h5 className="card-title">{goodsItem.title}</h5>
-											<button className="btn btn-primary">В корзину</button>
+											
+											<AddToCartButton product={goodsItem}/>
 										</div>
 									</div>
 								</div>

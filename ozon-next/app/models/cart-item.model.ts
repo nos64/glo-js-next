@@ -1,0 +1,5 @@
+import type { Product } from "./product.model";
+
+export interface CartItem extends Product {
+  count: number;
+};

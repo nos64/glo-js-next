@@ -237,6 +237,22 @@
   	}
   }
 
+		.cart-btn {
+			outline: none;
+			border: none;
+			background-color: transparent;
+			box-sizing: border-box;
+			transition: all 0.08s ease-in-out;
+			text-decoration: none;
+
+		  &:hover,
+			&:focus {
+				text-decoration: underline;
+				outline: none;
+				border: none;
+  		}
+		}
+
   #cart {
   	height: 56px;
   	width: 76px;
